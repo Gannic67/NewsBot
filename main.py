@@ -20,10 +20,11 @@ news = {
             'description': 'Погода'
         },
         'news2': {
-            'description': 'Благоустройство города'
+            'description': 'Новости города'
         }
     }
 }
+
 
 
 
@@ -34,7 +35,7 @@ def welcome(message):
     button1 = telebot.types.KeyboardButton("Новости Смоленск")
     button2 = telebot.types.KeyboardButton("Новости Москва")
     keyboard.add(button2, button1)
-    bot.send_message(chat_id,'Привет!Спасибо, что читаешь новости ', reply_markup=keyboard)
+    bot.send_message(chat_id, 'Привет!Спасибо, что читаешь новости ', reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.text == 'Новости Москва')
@@ -42,7 +43,7 @@ def smol(message):
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     button1 = telebot.types.KeyboardButton("Погода")
-    button2 = telebot.types.KeyboardButton("Благоустройство города")
+    button2 = telebot.types.KeyboardButton("Новости города")
     back = telebot.types.KeyboardButton("Вернуться в меню")
     keyboard.add(button1, button2)
     keyboard.add(back)
@@ -54,7 +55,7 @@ def smol(message):
 def moscow(message):
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button1 = telebot.types.KeyboardButton("Ремонт дорог")
+    button1 = telebot.types.KeyboardButton("Общие новости")
     button2 = telebot.types.KeyboardButton("Дтп")
     button3 = telebot.types.KeyboardButton("Кино-Афиша")
     back = telebot.types.KeyboardButton("Вернуться в меню")
