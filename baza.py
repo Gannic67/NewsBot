@@ -8,12 +8,36 @@ connection = pymysql.connect(host='147.45.105.54',
                              port=3306)
 
 
-with connection:
-    cursor = connection.cursor()
-    cursor.execute('SELECT * FROM Smolensk')
+# with connection:
+#     cursor = connection.cursor()
+#     cursor.execute('SELECT * FROM MOSCOW')
+#
+#     rows = cursor.fetchall()
+#
+#     for line in rows:
+#         print(line)
 
-    rows = cursor.fetchall()
+def get():
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM MOSCOW')
 
-    for line in rows:
-        print(line)
+        rows = cursor.fetchall()
+        a =''
+        for line in rows:
+            a += f'{line[1]}\n, {line[2]}\n, {line[3]}\n'
+        return a
+
+
+def smol():
+    with connection:
+        cursor = connection.cursor()
+        cursor.execute('SELECT * FROM Smolensk')
+
+        rows = cursor.fetchall()
+        b = ''
+        for line in rows:
+            b += f'{line[1]}\n, {line[2]}\n, {line[3]}\n'
+        return b
+
 

@@ -1,4 +1,7 @@
 import telebot
+
+from baza import smol
+from baza import get
 from config import TOKEN
 
 bot = telebot.TeleBot(TOKEN)
@@ -39,29 +42,27 @@ def welcome(message):
 
 
 @bot.message_handler(func=lambda message: message.text == 'Новости Москва')
-def smol(message):
+def moscow(message):
+    news = get()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button1 = telebot.types.KeyboardButton("Погода")
     button2 = telebot.types.KeyboardButton("Новости города")
     back = telebot.types.KeyboardButton("Вернуться в меню")
-    keyboard.add(button1, button2)
+    keyboard.add(button2)
     keyboard.add(back)
-    bot.send_message(chat_id, 'Выбирите пункт', reply_markup=keyboard)
+    bot.send_message(chat_id, news, reply_markup=keyboard)
 
 
 
 @bot.message_handler(func=lambda message: message.text == 'Новости Смоленск')
-def moscow(message):
+def smolensk(message):
+    new = smol()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     button1 = telebot.types.KeyboardButton("Общие новости")
-    button2 = telebot.types.KeyboardButton("Дтп")
-    button3 = telebot.types.KeyboardButton("Кино-Афиша")
     back = telebot.types.KeyboardButton("Вернуться в меню")
-    keyboard.add(button1, button2)
-    keyboard.add(back, button3)
-    bot.send_message(chat_id,'Выбирите пункт', reply_markup=keyboard)
+    keyboard.add(button1, back)
+    bot.send_message(chat_id, new, reply_markup=keyboard)
 
 @bot.message_handler(func=lambda message: message.text == 'Вернуться в меню')
 def back_to_menu(message):
