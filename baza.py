@@ -3,7 +3,7 @@ import pymysql
 
 connection = pymysql.connect(host='147.45.105.54',
                              user='gen_user',
-                             password='mfohmdu%E3$b\k',
+                             password='|2?xzWwGa+KF\B',
                              database='News',
                              port=3306)
 
@@ -18,26 +18,25 @@ connection = pymysql.connect(host='147.45.105.54',
 #         print(line)
 
 def get():
-    with connection:
-        cursor = connection.cursor()
-        cursor.execute('SELECT * FROM MOSCOW')
 
-        rows = cursor.fetchall()
-        a =''
-        for line in rows:
-            a += f'{line[1]}\n, {line[2]}\n, {line[3]}\n'
-        return a
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM MOSCOW')
+
+    rows = cursor.fetchall()
+    a =[]
+    for line in rows:
+        a.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return a
 
 
 def smol():
-    with connection:
-        cursor = connection.cursor()
-        cursor.execute('SELECT * FROM Smolensk')
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM Smolensk')
 
-        rows = cursor.fetchall()
-        b = ''
-        for line in rows:
-            b += f'{line[1]}\n, {line[2]}\n, {line[3]}\n'
-        return b
+    rows = cursor.fetchall()
+    b = []
+    for line in rows:
+        b.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return b
 
 
