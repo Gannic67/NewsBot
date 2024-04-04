@@ -1,6 +1,8 @@
 import telebot
 from baza import smol
+from baza import getmoscow
 from baza import get
+from baza import smols
 from config import TOKEN
 
 
