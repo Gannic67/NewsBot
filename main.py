@@ -1,6 +1,6 @@
 import telebot
 from baza import smol
-from baza import getmoscow
+from baza import getsmoscow
 from baza import get
 from baza import smols
 from config import TOKEN
@@ -62,7 +62,7 @@ def moscow(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Происшествия Москва')
 def moscow(message):
-    news = getmoscow()
+    news = getsmoscow()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     back = telebot.types.KeyboardButton("Вернуться в меню")
