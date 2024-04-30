@@ -112,4 +112,8 @@ def back_to_menu(message):
     """
 if __name__ == '__main__':
     print('Бот запущен!')
-    bot.infinity_polling()
+    while True:
+        try:
+            bot.infinity_polling()
+        except:
+            pass
