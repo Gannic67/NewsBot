@@ -44,7 +44,7 @@ Language: ![https://img.shields.io/badge/Python-3.11-blue](https://img.shields.i
 Проект состоит из следующих файлов:
 1. main.py: файл содержит основную логику для работы с ботом клавиатуру и запуск бота.
 2. database: News, создание структуры и заполнение базы данных.
-6. Crazy Python.db: база данных.
+3. Crazy Python.db: база данных.
 
 ## Лицензия
 
