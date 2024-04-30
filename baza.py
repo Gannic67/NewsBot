@@ -1,50 +1,54 @@
 from SQL import connection
 
-# with connection:
-#     cursor = connection.cursor()
-#     cursor.execute('SELECT * FROM MOSCOW')
-#
-#     rows = cursor.fetchall()
-#
-#     for line in rows:
-#         print(line)
 
 def get():
+    """
+    Функция вывода новостей Москва из таблицы построчно
+    """
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM MOSCOW')
     rows = cursor.fetchall()
-    a =[]
+    News_Moscow =[]
     for line in rows:
-        a.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return a
+        News_Moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return News_Moscow
 
 def getsmoscow():
+    """
+    Функция вывода новостей Москва из таблицы построчно
+    """
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM mascowDTP')
     rows = cursor.fetchall()
-    q =[]
+    News_Moscow =[]
     for line in rows:
-        q.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return q
+        News_Moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return News_Moscow
 
 
 def smol():
+    """
+    Функция вывода новостей Смоленск из таблицы построчно
+    """
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM Smolensk')
     rows = cursor.fetchall()
-    b = []
+    News_Smolensk = []
     for line in rows:
-        b.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return b
+        News_Smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return News_Smolensk
 
 def smols():
+    """
+    Функция вывода новостей Смоленск из таблицы построчно
+    """
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM SmolenskDTP')
     rows = cursor.fetchall()
-    q = []
+    News_Smolensk = []
     for line in rows:
-        q.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return q
+        News_Smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return News_Smolensk
 
 
 

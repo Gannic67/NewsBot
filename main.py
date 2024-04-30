@@ -5,36 +5,15 @@ from baza import get
 from baza import smols
 from config import TOKEN
 
-
 bot = telebot.TeleBot(TOKEN)
-
-# news1 = {
-#     'smolensk': {
-#         'news1': {
-#             'description': 'Ремонт дорог'
-#         },
-#         'news2': {
-#                  'description': 'Дтп'
-#                  },
-#         'poster': {
-#                     'Entertainment': 'Кино-Афиша'
-#                     }
-#     },
-#     'moscow': {
-#         'news1': {
-#             'description': 'Погода'
-#         },
-#         'news2': {
-#             'description': 'Новости города'
-#         }
-#     }
-# }
-
-
 
 
 @bot.message_handler(commands=['start'])
 def welcome(message):
+    """
+    В этой функции мы сделали команду старт и приветствие пользователей.
+    Далее создали кнопки, которая в аргументах содержит текст, отображаемый на кнопке.
+    """
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     button1 = telebot.types.KeyboardButton("Общие новости Смоленск")
@@ -49,6 +28,12 @@ def welcome(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Общие новости Москва')
 def moscow(message):
+    """
+    Функция отвечающая за кнопку общие новости города Москва.С помощью цикла проходимся по таблице из базы данный MySql.
+    Используем пустой список для хранения данных.
+    Метод append используем для добавления элементов в список.
+    Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
+    """
     news = get()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -62,6 +47,12 @@ def moscow(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Происшествия Москва')
 def moscow(message):
+    """
+    Функция отвечающая за кнопку общие новости города Москва.С помощью цикла проходимся по таблице из базы данный MySql.
+     Используем пустой список для хранения данных.
+    Метод append используем для добавления элементов в список.
+     Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
+    """
     news = getsmoscow()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -73,9 +64,14 @@ def moscow(message):
         bot.send_message(chat_id, i, reply_markup=keyboard)
 
 
-
 @bot.message_handler(func=lambda message: message.text == 'Общие новости Смоленск')
 def smolensk(message):
+    """
+    Функция отвечающая за кнопку общие новости города Москва.С помощью цикла проходимся по таблице из базы данный MySql.
+    Используем пустой список для хранения данных.
+    Метод append используем для добавления элементов в список.
+    Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
+    """
     news = smol()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -86,8 +82,15 @@ def smolensk(message):
         message_list.append({"pressed_count": 1})
         bot.send_message(chat_id, i, reply_markup=keyboard)
 
+
 @bot.message_handler(func=lambda message: message.text == 'Происшествия Смоленск')
 def smolensk(message):
+    """
+    Функция отвечающая за кнопку общие новости города Москва.С помощью цикла проходимся по таблице из базы данный MySql.
+    Используем пустой список для хранения данных.
+    Метод append используем для добавления элементов в список.
+    Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
+    """
     news = smols()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
@@ -99,17 +102,14 @@ def smolensk(message):
         bot.send_message(chat_id, i, reply_markup=keyboard)
 
 
-
-@bot.message_handler(func=lambda message: message.text == 'Вернуться в меню')
+@bot.message_handler(func=lambda message: message.text == 'Вернуться в меню')   #
 def back_to_menu(message):
+# Функция возврата в меню выбора новостей
     welcome(message)
 
-
-
-
-
-
+    """
+    Запуск бота
+    """
 if __name__ == '__main__':
     print('Бот запущен!')
     bot.infinity_polling()
-
