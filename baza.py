@@ -1,7 +1,11 @@
+"""
+Модуль работы с базой данных где представлены запросы выбора новостей по городам
+"""
+
 from SQL import connection
 
 
-def get():
+def moscow_generalnews():
     """
     Функция вывода новостей Москва из таблицы построчно
     """
@@ -13,7 +17,7 @@ def get():
         News_Moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
     return News_Moscow
 
-def getsmoscow():
+def news_moscow():
     """
     Функция вывода новостей Москва из таблицы построчно
     """
@@ -38,7 +42,7 @@ def smol():
         News_Smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
     return News_Smolensk
 
-def smols():
+def smol_news():
     """
     Функция вывода новостей Смоленск из таблицы построчно
     """

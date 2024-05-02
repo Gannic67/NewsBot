@@ -1,8 +1,13 @@
+"""
+Основной модуль бота в котором описана логика работы бота.
+Взаимодействие его с базой данных посредством нажатия на кнопки
+"""
+
 import telebot
 from baza import smol
-from baza import getsmoscow
-from baza import get
-from baza import smols
+from baza import news_moscow
+from baza import moscow_generalnews
+from baza import smol_news
 from config import TOKEN
 
 bot = telebot.TeleBot(TOKEN)
@@ -34,7 +39,7 @@ def moscow(message):
     Метод append используем для добавления элементов в список.
     Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
     """
-    news = get()
+    news = moscow_generalnews()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     back = telebot.types.KeyboardButton("Вернуться в меню")
@@ -53,7 +58,7 @@ def moscow(message):
     Метод append используем для добавления элементов в список.
      Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
     """
-    news = getsmoscow()
+    news = news_moscow()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     back = telebot.types.KeyboardButton("Вернуться в меню")
@@ -91,7 +96,7 @@ def smolensk(message):
     Метод append используем для добавления элементов в список.
     Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
     """
-    news = smols()
+    news = smol_news()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     back = telebot.types.KeyboardButton("Вернуться в меню")
@@ -104,7 +109,10 @@ def smolensk(message):
 
 @bot.message_handler(func=lambda message: message.text == 'Вернуться в меню')   #
 def back_to_menu(message):
-# Функция возврата в меню выбора новостей
+    """
+    Функция возврата в меню выбора новостей
+    """
+
     welcome(message)
 
     """
