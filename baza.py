@@ -12,10 +12,10 @@ def moscow_generalnews():
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM MOSCOW')
     rows = cursor.fetchall()
-    News_Moscow =[]
+    news_moscow =[]
     for line in rows:
-        News_Moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return News_Moscow
+        news_moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return news_moscow
 
 def news_moscow():
     """
@@ -24,10 +24,10 @@ def news_moscow():
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM mascowDTP')
     rows = cursor.fetchall()
-    News_Moscow =[]
+    news_moscow =[]
     for line in rows:
-        News_Moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return News_Moscow
+        news_moscow.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return news_moscow
 
 
 def smol_news():
@@ -37,10 +37,10 @@ def smol_news():
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM Smolensk')
     rows = cursor.fetchall()
-    News_Smolensk = []
+    news_smolensk = []
     for line in rows:
-        News_Smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return News_Smolensk
+        news_smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return news_smolensk
 
 def smol_dtp():
     """
@@ -49,10 +49,10 @@ def smol_dtp():
     cursor = connection.cursor()
     cursor.execute('SELECT * FROM SmolenskDTP')
     rows = cursor.fetchall()
-    News_Smolensk = []
+    news_smolensk = []
     for line in rows:
-        News_Smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
-    return News_Smolensk
+        news_smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
+    return news_smolensk
 
 
 
