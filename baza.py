@@ -30,7 +30,7 @@ def news_moscow():
     return News_Moscow
 
 
-def smol():
+def smol_news():
     """
     Функция вывода новостей Смоленск из таблицы построчно
     """
@@ -42,7 +42,7 @@ def smol():
         News_Smolensk.append(f'{line[1]}\n\n, {line[2]}\n\n, {line[3]}\n\n')
     return News_Smolensk
 
-def smol_news():
+def smol_dtp():
     """
     Функция вывода новостей Смоленск из таблицы построчно
     """

@@ -4,10 +4,10 @@
 """
 
 import telebot
-from baza import smol
+from baza import smol_news
 from baza import news_moscow
 from baza import moscow_generalnews
-from baza import smol_news
+from baza import smol_dtp
 from config import TOKEN
 
 bot = telebot.TeleBot(TOKEN)
@@ -77,7 +77,7 @@ def smolensk(message):
     Метод append используем для добавления элементов в список.
     Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
     """
-    news = smol()
+    news = smol_news()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     back = telebot.types.KeyboardButton("Вернуться в меню")
@@ -96,7 +96,7 @@ def smolensk(message):
     Метод append используем для добавления элементов в список.
     Метододом count Возвращаем количество раз, сколько указаный элемент появляется в списке
     """
-    news = smol_news()
+    news = smol_dtp()
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
     back = telebot.types.KeyboardButton("Вернуться в меню")
