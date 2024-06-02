@@ -7,7 +7,7 @@ import pymysql
 import os
 
 connection = pymysql.connect(host=os.getenv('BD_HOST'),
-                             user='gen_user',
+                             user='BD_USER',
                              password=os.getenv('BD_PASSWORD'),
                              database='News',
-                             port=3306)
+                             port='BD_PORT')
