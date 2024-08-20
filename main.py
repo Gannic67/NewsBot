@@ -21,7 +21,7 @@ def welcome(message):
     """
     chat_id = message.chat.id
     keyboard = telebot.types.ReplyKeyboardMarkup(resize_keyboard=True)
-    button1 = telebot.types.KeyboardButton("Общие новости Смоленск")
+    button1 = telebot.types.KeyboardButton("Новости Смоленск")
     button2 = telebot.types.KeyboardButton('Происшествия Смоленск')
     button3 = telebot.types.KeyboardButton("Общие новости Москва")
     button4 = telebot.types.KeyboardButton('Происшествия Москва')
